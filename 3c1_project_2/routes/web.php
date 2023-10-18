@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\showController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,5 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
-Route::get('show', \App\Http\Controllers\showController::class, ) 
+Route::get('show', [\App\Http\Controllers\showController::class, 'show']); 
+Route::get('show_data', [showController::class, 'showData']); 
